@@ -4,7 +4,7 @@
     </div>
     <form action="index.php?act=adddm" method="post">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Mã loại</label>
+            <label for="exampleInputEmail1" class="form-label">Mã danh mục</label>
             <input type="text" name="maloai" disabled>
         </div>
         <div class="mb-3">
