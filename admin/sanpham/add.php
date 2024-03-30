@@ -8,17 +8,27 @@
             <input type="text" name="masp" disabled>
         </div>
         <div class="mb-3">
+            <select class="form-select form-select-lg mb-3" name="iddm" aria-label="Large select example">
+                <?php
+                    foreach ($listdanhmuc as $danhmuc) {
+                        extract($danhmuc);
+                        echo '<option value="'.$id.'">'.$name.'</option>';
+                    }
+                ?>
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Tên sản phẩm</label>
             <input type="text" name="tensp" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Giá cũ</label>
-            <input type="text" name="giacu" class="form-control" id="exampleInputPassword1">
+            <label for="exampleInputPassword1" class="form-label">Giá sản phẩm</label>
+            <input type="text" name="giasp" class="form-control" id="exampleInputPassword1">
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Giá mới</label>
             <input type="text" name="giamoi" class="form-control" id="exampleInputPassword1">
-        </div>
+        </div> -->
         <div class="mb-3">
             <label for="formFile" class="form-label">Ảnh</label>
             <input class="form-control" name="hinh" type="file" id="formFile">
@@ -30,5 +40,10 @@
         <input type="submit" name="themmoi" class="btn btn-primary" value="Thêm mới">
         <input type="reset" class="btn btn-secondary" value="Nhập lại">
         <a href="index.php?act=listsp"><button type="button" class="btn btn-info">Danh sách</button></a>
+        <br>
+        <?php
+            if(isset($thongbao)&&($thongbao!=""))
+            echo $thongbao;
+        ?>
     </form>
 </div>
