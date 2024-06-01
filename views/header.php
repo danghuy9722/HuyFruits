@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Biolife - Organic Food</title>
+    <title>HuyFruits</title>
     <link href="https://fonts.googleapis.com/css?family=Cairo:400,600,700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400i,700i" rel="stylesheet">
@@ -23,7 +23,7 @@
 <body class="biolife-body">
 
     <!-- Preloader -->
-    <div id="biof-loading">
+    <!-- <div id="biof-loading">
         <div class="biof-loading-center">
             <div class="biof-loading-center-absolute">
                 <div class="dot dot-one"></div>
@@ -31,7 +31,7 @@
                 <div class="dot dot-three"></div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- HEADER -->
     <header id="header" class="header-area style-01 layout-03">
@@ -85,19 +85,30 @@
                                 <a href="#" class="menu-name" data-title="Shop" >Sản phẩm</a>
                                 <div class="wrap-megamenu lg-width-900 md-width-750">
                                     <div class="mega-content">
-                                        <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
-                                            <div class="wrap-custom-menu vertical-menu">
-                                                <h4 class="menu-title">Fresh Berries</h4>
-                                                <ul class="menu">
-                                                    <li><a href="#">Fruit & Nut Gifts</a></li>
-                                                    <li><a href="#">Mixed Fruits</a></li>
-                                                    <li><a href="#">Oranges</a></li>
-                                                    <li><a href="#">Bananas & Plantains</a></li>
-                                                    <li><a href="#">Fresh Gala Apples</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
+                                        
+                                        <!-- Categories -->
+                                        <?php
+                                            foreach ($dsdm as $dm) {
+                                                extract($dm);
+                                                $linkdm = "index.php?act=sanpham&iddm=".$id;
+                                                echo '
+                                                    <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
+                                                        <div class="wrap-custom-menu vertical-menu">
+                                                            <h4 class="menu-title"><a href="'.$linkdm.'">'.$name.'</a></h4>
+                                                            <ul class="menu">
+                                                                <li><a href="#">Fruit & Nut Gifts</a></li>
+                                                                <li><a href="#">Mixed Fruits</a></li>
+                                                                <li><a href="#">Oranges</a></li>
+                                                                <li><a href="#">Bananas & Plantains</a></li>
+                                                                <li><a href="#">Fresh Gala Apples</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                ';
+
+                                            }   
+                                        ?>
+                                        <!-- <div class="col-lg-3 col-md-3 col-xs-12 md-margin-bottom-0 xs-margin-bottom-25">
                                             <div class="wrap-custom-menu vertical-menu">
                                                 <h4 class="menu-title">Vegetables</h4>
                                                 <ul class="menu">
@@ -132,7 +143,8 @@
                                                     <li><a href="#">Beverages</a></li>
                                                 </ul>
                                             </div>
-                                        </div>
+                                        </div> -->
+                                        <!-- End Categories -->
                                     </div>
                                 </div>
                             </li>

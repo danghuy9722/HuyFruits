@@ -214,7 +214,41 @@
                 <div class="tab-content">
                     <div id="tab01_1st" class="tab-contain active">
                         <ul class="products-list biolife-carousel nav-center-02 nav-none-on-mobile eq-height-contain" data-slick='{"rows":2 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":25 }},{"breakpoint":768, "settings":{ "slidesToShow": 2, "slidesMargin":15}}]}'>
-                            <li class="product-item">
+                            <!-- Product-item -->
+                            <?php
+                                foreach ($spnew as $sp) {
+                                    extract($sp);
+                                    $hinh = $img_path.$img;
+                                    echo '
+                                    <li class="product-item">
+                                    <div class="contain-product layout-default">
+                                        <div class="product-thumb">
+                                            <a href="#" class="link-to-product">
+                                                <img src="'.$hinh.'" alt="Vegetables" width="270" height="270" class="product-thumnail">
+                                            </a>
+                                            <a class="lookup btn_call_quickview" href="#"><i class="biolife-icon icon-search"></i></a>
+                                        </div>
+                                        <div class="info">
+                                            <b class="categories">Danh mục</b>
+                                            <h4 class="product-title"><a href="#" class="pr-name">'.$name.'</a></h4>
+                                            <div class="price ">
+                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>$'.$price.'</span></ins>
+                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                            </div>
+                                            <div class="slide-down-box">
+                                                <p class="message">'.$mota.'</p>
+                                                <div class="buttons">
+                                                    <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                                    <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
+                                                    <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>';
+                                }
+                            ?>
+                            <!-- <li class="product-item">
                                 <div class="contain-product layout-default">
                                     <div class="product-thumb">
                                         <a href="#" class="link-to-product">
@@ -239,8 +273,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                            <li class="product-item">
+                            </li> -->
+                            <!-- <li class="product-item">
                                 <div class="contain-product layout-default">
                                     <div class="product-thumb">
                                         <a href="#" class="link-to-product">
@@ -473,7 +507,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
+                            <!-- End Product-item -->
                         </ul>
                     </div>
                     <div id="tab01_2nd" class="tab-contain ">
@@ -1702,28 +1737,38 @@
                             <h3 class="title">Top Rated Products</h3>
                         </div>
                         <ul class="products biolife-carousel eq-height-contain nav-center-03 nav-none-on-mobile row-space-29px" data-slick='{"rows":2,"arrows":true,"dots":false,"infinite":false,"speed":400,"slidesMargin":30,"slidesToShow":2,"responsive":[{"breakpoint":1200,"settings":{ "rows":2, "slidesToShow": 2}},{"breakpoint":992, "settings":{ "rows":2, "slidesToShow": 1}},{"breakpoint":768, "settings":{ "rows":2, "slidesToShow": 2}},{"breakpoint":500, "settings":{ "rows":2, "slidesToShow": 1}}]}'>
-                            <li class="product-item">
-                                <div class="contain-product right-info-layout contain-product__right-info-layout">
-                                    <div class="product-thumb">
-                                        <a href="#" class="link-to-product">
-                                            <img src="assets/images/products/p-19.jpg" alt="dd" width="270" height="270" class="product-thumnail">
-                                        </a>
-                                    </div>
-                                    <div class="info">
-                                        <b class="categories">Vegetables</b>
-                                        <h4 class="product-title"><a href="#" class="pr-name">Pumpkins Fairytale</a></h4>
-                                        <div class="price ">
-                                            <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                            <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
-                                        </div>
-                                        <div class="rating">
-                                            <p class="star-rating"><span class="width-80percent"></span></p>
-                                            <span class="review-count">(05 Reviews)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product-item">
+                            <?php
+                                foreach ($dstop10 as $sp) {
+                                    extract($sp);
+                                    $linksp = "index.php?act=sanphamct&idsp=".$id;
+                                    $img = $img_path.$img;
+                                    echo '
+                                        <li class="product-item">
+                                            <div class="contain-product right-info-layout contain-product__right-info-layout">
+                                                <div class="product-thumb">
+                                                    <a href="'.$linksp.'" class="link-to-product">
+                                                        <img src="'.$img.'" alt="dd" width="270" height="270" class="product-thumnail">
+                                                    </a>
+                                                </div>
+                                                <div class="info">
+                                                    <b class="categories">Vegetables</b>
+                                                    <h4 class="product-title"><a href="'.$linksp.'" class="pr-name">'.$name.'</a></h4>
+                                                    <div class="price ">
+                                                        <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
+                                                        <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <p class="star-rating"><span class="width-80percent"></span></p>
+                                                        <span class="review-count">(05 Reviews)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    ';
+                                }
+                            ?>
+                            
+                            <!-- <li class="product-item">
                                 <div class="contain-product right-info-layout contain-product__right-info-layout">
                                     <div class="product-thumb">
                                         <a href="#" class="link-to-product">
@@ -1869,7 +1914,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="biolife-banner style-01 biolife-banner__style-01 xs-margin-top-80px-im sm-margin-top-30px-im">
                             <div class="banner-contain">
